@@ -11,5 +11,7 @@ describe('Testes para a Home', () => {
         cy.get('input[placeholder="E-mail"]').type('.br')
         cy.get('input[placeholder="Telefone"]').type(' ramal 05')
         cy.get('button[class="alterar"]').click()
+
+        cy.contains('Dev').should('exist')
     })
 })

@@ -6,6 +6,11 @@ describe('Testes para a Home', () => {
     })
     
     it('Deve deletar um contato', () => {
-        cy.get(':nth-child(4) > .sc-gueYoa > .delete').click()
+        // Pegar tamanho inicial
+        cy.get('.contato').its('length').then((initialSize) => {
+            cy.get(':nth-child(4) > .sc-gueYoa > .delete').click()
+
+            cy.get('.contato').its('length').should('eq', initialSize - 1)
+        })
     })
 })
